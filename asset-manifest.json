@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Conlee-Housing-App1/static/css/main.40bdb486.css",
+    "main.css": "/Conlee-Housing-App1/static/css/main.d3072000.css",
     "main.js": "/Conlee-Housing-App1/static/js/main.1af46082.js",
     "index.html": "/Conlee-Housing-App1/index.html",
-    "main.40bdb486.css.map": "/Conlee-Housing-App1/static/css/main.40bdb486.css.map",
+    "main.d3072000.css.map": "/Conlee-Housing-App1/static/css/main.d3072000.css.map",
     "main.1af46082.js.map": "/Conlee-Housing-App1/static/js/main.1af46082.js.map"
   },
   "entrypoints": [
-    "static/css/main.40bdb486.css",
+    "static/css/main.d3072000.css",
     "static/js/main.1af46082.js"
   ]
 }
