@@ -12,3 +12,7 @@
 .all{
   margin: 10%;
 }
+
+.both-together{
+  display: flex;
+}
