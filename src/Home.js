@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./InputBoxes.css"; // import CSS file
+import BankBalance from "./Balance";
+
+// import BankBalance from "./Balance";
 
 function InputBoxes() {
   const [values, setValues] = useState({
@@ -15,7 +18,17 @@ function InputBoxes() {
   const [total, setTotal] = useState("");
   const [average, setAverage] = useState("");
 
+  const [balance, setBalance] = useState(0);
+  const [inputValue, setInputValue] = useState("");
 
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleButtonClick = () => {
+    setBalance(inputValue);
+    console.log(`Your bank balance is ${inputValue}`);
+  };
 
   const handleChange = (event) => {
     setValues({
@@ -33,16 +46,11 @@ function InputBoxes() {
     const avg = sum / count;
     setTotal(sum);
     setAverage(avg);
-
- 
   };
 
   const handleClick = () => {
     calculateTotal();
     setClicked(true);
-
-
-  
   };
 
   let flispSubsidy;
@@ -233,8 +241,18 @@ function InputBoxes() {
   }
 
   const flispAmount = Math.floor(flispSubsidy / 1000) * 1000;
-  const flispRounded = flispAmount.toLocaleString();
+  // const flispRounded = flispAmount.toLocaleString();
 
+  const bankBalanceAmount = +inputValue;
+  const flisp = +flispAmount;
+  const markupAmount = +140000;
+
+  const finalBuyingPower = bankBalanceAmount + flisp - markupAmount;
+
+  console.log(typeof bankBalanceAmount + " bb");
+  console.log(typeof flisp + " flisp");
+  console.log(typeof markupAmount + " ma");
+  console.log(typeof finalBuyingPower + " bp");
 
   return (
     <div>
@@ -288,16 +306,33 @@ function InputBoxes() {
         className="input-box"
       />
       <button onClick={handleClick}>Calculate Total and Average</button>
+      <br />
+      <br />
+      <label htmlFor="balanceInput">Enter your bank balance:</label>
+      <input
+        type="number"
+        id="balanceInput"
+        value={inputValue}
+        onChange={handleInputChange}
+      />
       {clicked && (
         <div>
           <p>Total: {total}</p>
           <p>Average: {average}</p>
           <p>FLISP Subsidy: {flispSubsidy}</p>
-          <p>Flisp rounded {flispRounded}</p>
+          <p>Flisp rounded {flispAmount}</p>
+          <p> Markup {markupAmount}</p>
+          <p>Bank balance {bankBalanceAmount}</p>
         </div>
       )}
 
-   
+      {/* <button onClick={handleButtonClick}>Print Balance</button> */}
+      {/* <p>{inputValue}</p> */}
+      {/* <p>{ finalBuyingPower}</p> */}
+      <p>***********</p>
+      <p> Amount from the bank: R{bankBalanceAmount}</p>
+      <p>FLISP: R{flisp}</p>
+      <p>Buying power: R{finalBuyingPower}</p>
     </div>
   );
 }
