@@ -239,12 +239,12 @@ function Calculator() {
   } else if (average >= 21801 && average <= 22000) {
     flispAmount = "30001";
   } else {
-    flispAmount = "No FLISP subsidy available, check your input";
+    flispAmount = 0;
   }
 
   const flispConverted = Math.floor(+flispAmount / 1000) * 1000;
 
-  console.log(typeof flispConverted);
+  // console.log(typeof flispConverted);
 
   const buyingPower = flispConverted + bankBalance - markup;
 
@@ -303,7 +303,6 @@ function Calculator() {
       <p>Amount from the bank: R{bankBalance}</p>
       <p>FLISP: R{flispConverted}</p>
       <p>Buying power: R{buyingPower}</p>
-
     </div>
   );
 }
